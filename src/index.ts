@@ -12,7 +12,7 @@ async function main() {
     dbName: 'my-db-name',
     type: 'mongo',
   })
-  const em = orm.em.fork(); // <-- create the fork
+  const em = orm.em.fork(); // <-- create the fork, https://stackoverflow.com/questions/71117269/validation-error-using-global-entity-manager-instance-methods-for-context-speci
 
   const bookRepository = em.getRepository(MongoBook)
 
