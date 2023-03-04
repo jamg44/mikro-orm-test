@@ -32,4 +32,8 @@ export class MongoBook {
     this.age = age;
   }
 
+  getOlder() {
+    this.age++
+  }
+
 }

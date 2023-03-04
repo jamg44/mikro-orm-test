@@ -1,5 +1,5 @@
 import type { MongoDriver } from '@mikro-orm/mongodb' // or any other driver package
-import { MikroORM, EntityRepository, QueryOrder } from '@mikro-orm/core'
+import { MikroORM, QueryOrder } from '@mikro-orm/core'
 import { MongoBook } from './entities/MongoBook'
 
 main().catch(err => console.log('Hubo un error', err))
@@ -17,6 +17,7 @@ async function main() {
   const bookRepository = em.getRepository(MongoBook)
 
   const book = em.create(MongoBook, { name: 'Libro1', age: 32 })
+  book.getOlder()
   // wrap(book.author, true).__initialized = true;
   await bookRepository.persist(book).flush()
   console.log('Persisted book', book._id)
